@@ -14,3 +14,6 @@ pip install pytube==12.1.0
 ```
 
 4. Run the script
+
+## Found a bug or have some questions?
+Join our [Discord](https://discord.gg/9VSEt26ngV)
