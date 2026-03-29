@@ -1,6 +1,5 @@
 # python-youtube-downloader
-**A script to download youtube videos with python**
-
+**Simple yt-dlp wrapper to download videos from youtube in highest quality**
 
 ## Introduction
 
@@ -8,12 +7,10 @@
 
 2. Install [python3.9](https://www.python.org/) or higher
 
-3. Install pytube
+3. Install yt-dlp
 ```py
-pip install pytube==12.1.0
+pip install yt-dlp
 ```
+4. Install [FFmpeg](https://ffmpeg.org/)
 
-4. Run the script
-
-## Found a bug or have some questions?
-Join our [Discord](https://discord.gg/9VSEt26ngV)
+5. Run index.py script
