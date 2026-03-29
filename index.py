@@ -1,8 +1,3 @@
-"""
-YouTube Downloader
-Downloads the highest quality audio+video from YouTube videos
-"""
-
 import yt_dlp
 import os
 import sys
@@ -15,9 +10,11 @@ def download_youtube_video(url, output_path, format_choice="bestvideo+bestaudio[
             url: YouTube video URL
             output_path: Where to save the file (uses video title automatically)
         """
+    
+    # configure ytdl options
     ydl_opts = {
         'format': format_choice,
-        'merge_output_format': 'mp4',  # yt-dlp handles FFmpeg merging automatically
+        'merge_output_format': 'mp4',
         'outtmpl': './downloads/%(title)s.%(ext)s',
         'noplaylist': True,
         'quiet': False,
@@ -52,19 +49,18 @@ def download_youtube_audio(url, output_path=".", codec="mp3"):
         output_path (str): Directory to save the audio file
         format_choice (str): Audio format preference
     """
-
-    # Configure yt-dlp options
+    # configure ytdl options
     ydl_opts = {
-        'format': 'bestaudio/best',  # Download best audio available
+        'format': 'bestaudio/best',
         'postprocessors': [{
-            'key': 'FFmpegExtractAudio',  # Extract audio
-            'preferredcodec': codec,  # Convert to MP3 (change to 'm4a', 'opus', etc.)
-            'preferredquality': '0',  # 0 = best quality
+            'key': 'FFmpegExtractAudio',  
+            'preferredcodec': codec,  
+            'preferredquality': '0',  
         }],
-        'outtmpl': os.path.join(output_path, './downloads/%(title)s.%(ext)s'),  # Save as video title
-        'quiet': False,  # Show download progress
-        'no_warnings': True,  # Show warnings
-        'extract_flat': False,  # Extract full metadata
+        'outtmpl': os.path.join(output_path, './downloads/%(title)s.%(ext)s'),  
+        'quiet': False,  
+        'no_warnings': True,  
+        'extract_flat': False,  
     }
 
     try:
@@ -94,7 +90,7 @@ def download_with_custom_format(url, output_path=".", format_code="bestaudio"):
         output_path (str): Directory to save the file
         format_code (str): yt-dlp format code
     """
-
+     # configure ytdl options
     ydl_opts = {
         'format': format_code,
         'outtmpl': os.path.join(output_path, '%(title)s.%(ext)s'),
